@@ -123,7 +123,7 @@ function submitGuess() {
 
   attrs.forEach((attr, i) => {
     const tile = grid.children[row * 5 + i];
-    tile.textContent = `${attr.toUpperCase()}: ${guess[attr]}`;
+    tile.innerHTML = `<strong>${attr.toUpperCase()}</strong><br>${guess[attr]}`;
 
     if (guess[attr] === ANSWER[attr]) {
       tile.classList.add("correct");
@@ -142,4 +142,5 @@ function submitGuess() {
 
 </body>
 </html>
+
 
