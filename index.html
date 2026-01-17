@@ -153,6 +153,7 @@ button:hover {
 }
 
 .correct { background: #538d4e !important; border-color: #538d4e !important; }
+.partial { background: #b59f3b !important; border-color: #b59f3b !important; }
 .wrong   { background: #8b2f2f !important; border-color: #8b2f2f !important; }
 
 .tile img {
@@ -296,7 +297,7 @@ const CHARACTERS = [
   {
     name: "Dread Serpent",
     image: "https://i.imgur.com/MaiHcjL.png",
-    luminant: "Etrean/Eastern Luminant",
+    luminant: "Etrean Luminant, Eastern Luminant",
     location: "Voidsea",
     race: "Monster",
     gender: "???",
@@ -467,7 +468,7 @@ const CHARACTERS = [
   {
     name: "Megalodaunt",
     image: "https://i.imgur.com/XWOTXvn.png",
-    luminant: "Etrean/Eastern/Depths",
+    luminant: "Etrean Luminant, Eastern Luminant, The Depths",
     location: "???",
     race: "Monster",
     gender: "???",
@@ -476,10 +477,118 @@ const CHARACTERS = [
   {
     name: "Alpha Megalodaunt",
     image: "https://i.imgur.com/Y5ZacPm.png",
-    luminant: "Eastern/Depths",
+    luminant: "Eastern Luminant, The Depths",
     location: "???",
     race: "Monster",
     gender: "???",
+    type: "Enemy"
+  },
+  {
+    name: "Crimson Megalodaunt",
+    image: "https://i.imgur.com/fFwvypj.png",
+    luminant: "Eastern Luminant",
+    location: "???",
+    race: "Monster",
+    gender: "???",
+    type: "Enemy"
+  },
+  {
+    name: "Prime Megalodaunt",
+    image: "https://i.imgur.com/D1wPqoj.png",
+    luminant: "The Depths",
+    location: "???",
+    race: "Monster",
+    gender: "???",
+    type: "Enemy"
+  },
+  {
+    name: "Songseeker Monk",
+    image: "https://i.imgur.com/AMrPRI1.png",
+    luminant: "Eastern Luminant",
+    location: "Songseeker Wilds",
+    race: "???",
+    gender: "Male/Female",
+    type: "Enemy"
+  },
+  {
+    name: "Bandit",
+    image: "https://i.imgur.com/gwLdnaR.png",
+    luminant: "Etrean Luminant, Eastern Luminant",
+    location: "???",
+    race: "???",
+    gender: "Male/Female",
+    type: "Enemy"
+  },
+  {
+    name: "Bandit Leader",
+    image: "https://i.imgur.com/CdB4iU9.png",
+    luminant: "Etrean Luminant, Eastern Luminant",
+    location: "???",
+    race: "???",
+    gender: "Male/Female",
+    type: "Enemy"
+  },
+  {
+    name: "Ministry Necromancer",
+    image: "https://i.imgur.com/3C2w9fY.png",
+    luminant: "Etrean Luminant",
+    location: "Minityrsa",
+    race: "Ganymede",
+    gender: "Male/Female",
+    type: "Enemy"
+  },
+  {
+    name: "Ministry Scout",
+    image: "https://i.imgur.com/v8vDqxM.png",
+    luminant: "Etrean Luminant, Eastern Luminant",
+    location: "Minityrsa, Summer Isle",
+    race: "???",
+    gender: "Male/Female",
+    type: "Enemy"
+  },
+  {
+    name: "Ministry Captain",
+    image: "https://i.imgur.com/qy9ez8l.png",
+    luminant: "Etrean Luminant",
+    location: "Minityrsa",
+    race: "???",
+    gender: "Male/Female",
+    type: "Enemy"
+  },
+  {
+    name: "Summer Company Guard",
+    image: "https://i.imgur.com/Jn0kqlm.png",
+    luminant: "Eastern Luminant",
+    location: "Summer Isle",
+    race: "???",
+    gender: "Male/Female",
+    type: "Enemy"
+  },
+  {
+    name: "Summer Manager",
+    image: "https://i.imgur.com/eBnpdi5.png",
+    luminant: "Eastern Luminant",
+    location: "Summer Isle",
+    race: "???",
+    gender: "Male/Female",
+    type: "Enemy"
+  },
+  {
+    name: "Summer Goon",
+    image: "https://i.imgur.com/JiUzYLu.png",
+    luminant: "Eastern Luminant",
+    location: "Miner's Landing",
+    race: "???",
+    gender: "Male/Female",
+    type: "Enemy"
+  },
+  {
+    name: "Ignition Union Fighter",
+    image: "https://i.imgur.com/GSBYw2J.png",
+    luminant: "Eastern Luminant, The Depths",
+    location: "Summer Isle, Scyphozia",
+    race: "???",
+    gender: "Male/Female",
     type: "Enemy"
   },
   {
@@ -522,7 +631,7 @@ input.addEventListener("input", () => {
       div.onclick = () => {
         input.value = c.name;
         suggestions.innerHTML = "";
-        submitGuess(); // Optional: submit automatically on click
+        submitGuess();
       };
       suggestions.appendChild(div);
     });
@@ -555,7 +664,7 @@ function submitGuess() {
         } else {
           tile.textContent = guess[attr];
           tile.classList.add(
-            guess[attr] === ANSWER[attr] ? "correct" : "wrong"
+            compareValues(guess[attr], ANSWER[attr])
           );
           tile.classList.add("pop");
         }
@@ -581,6 +690,34 @@ if (guess.name === ANSWER.name) {
   suggestions.innerHTML = "";
 }
 
+function normalizeValues(value) {
+  return value
+    .split(/[,/]/)           // supports "," and "/"
+    .map(v => v.trim().toLowerCase())
+    .filter(Boolean);
+}
+  
+function compareValues(guessValue, answerValue) {
+  const guessSet = normalizeValues(guessValue);
+  const answerSet = normalizeValues(answerValue);
+
+  // Exact match
+  if (
+    guessSet.length === answerSet.length &&
+    guessSet.every(v => answerSet.includes(v))
+  ) {
+    return "correct";
+  }
+
+  // Partial overlap
+  if (guessSet.some(v => answerSet.includes(v))) {
+    return "partial";
+  }
+
+  // No match
+  return "wrong";
+}
+  
 function restartGame() {
   // Pick a new answer
   ANSWER = CHARACTERS[Math.floor(Math.random() * CHARACTERS.length)];
@@ -607,6 +744,7 @@ input.addEventListener("keypress", (e) => {
 
 </body>
 </html>
+
 
 
 
