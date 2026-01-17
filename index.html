@@ -559,11 +559,17 @@ function submitGuess() {
     }, i * 150); // Each tile starts flipping 150ms after the previous one
   });
 
-  if (guess.name === ANSWER.name) {
-    setTimeout(() => alert("You won!"), 2000);
-  } else if (row === 5) {
-    setTimeout(() => alert("Out of guesses! Answer was " + ANSWER.name), 2000);
-  }
+if (guess.name === ANSWER.name) {
+  setTimeout(() => {
+    alert("You won!");
+    location.reload(); // reloads after OK is clicked
+  }, 2000);
+} else if (row === 5) {
+  setTimeout(() => {
+    alert("Out of guesses! Answer was " + ANSWER.name);
+    location.reload(); // reloads after OK is clicked
+  }, 2000);
+}
 
   row++;
   input.value = "";
@@ -578,4 +584,5 @@ input.addEventListener("keypress", (e) => {
 
 </body>
 </html>
+
 
