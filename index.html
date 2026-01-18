@@ -220,7 +220,7 @@ const CHARACTERS = [
     location: "Isle of Vigils",
     race: "Etrean",
     gender: "Male",
-    type: "Boss"
+    type: "NPC/Boss"
   },
   {
     name: "Heart of Enmity",
@@ -400,7 +400,7 @@ const CHARACTERS = [
     location: "Scyphozia",
     race: "Ganymede",
     gender: "Non-Binary",
-    type: "NPC"
+    type: "NPC/Enemy"
   },
   {
     name: "Vyrelda, Master of Blood",
@@ -409,7 +409,7 @@ const CHARACTERS = [
     location: "Eternal Gale",
     race: "Etrean",
     gender: "Female",
-    type: "NPC"
+    type: "NPC/Enemy"
   },
   {
     name: "Nell, Master of Frost",
@@ -418,7 +418,7 @@ const CHARACTERS = [
     location: "Etris",
     race: "Adret",
     gender: "Female",
-    type: "NPC"
+    type: "NPC/Enemy"
   },
   {
     name: "Friid, Master of Gale",
@@ -427,7 +427,7 @@ const CHARACTERS = [
     location: "Isle of Vigils",
     race: "Celtor",
     gender: "Female",
-    type: "NPC"
+    type: "NPC/Enemy"
   },
   {
     name: "Amashi, Master of Flame",
@@ -436,7 +436,7 @@ const CHARACTERS = [
     location: "Songseeker Wilds",
     race: "Vesperian",
     gender: "Male",
-    type: "NPC"
+    type: "NPC/Enemy"
   },
   {
     name: "Funke, Master of Thunder",
@@ -445,7 +445,7 @@ const CHARACTERS = [
     location: "Summer Isle",
     race: "Canor",
     gender: "Male",
-    type: "NPC"
+    type: "NPC/Enemy"
   },
   {
     name: "Adar, Master of Metal",
@@ -454,7 +454,7 @@ const CHARACTERS = [
     location: "Miner's Landing",
     race: "Etrean",
     gender: "Male",
-    type: "NPC"
+    type: "NPC/Enemy"
   },
   {
     name: "Mechalodaunt",
@@ -835,6 +835,213 @@ const CHARACTERS = [
     type: "Enemy"
   },
   {
+    name: "Apprentice Diver",
+    image: "https://i.imgur.com/3uvzCdt.png",
+    luminant: "The Depths",
+    location: "Scyphozia, Castle Light",
+    race: "Any Aspect",
+    gender: "Male/Female",
+    type: "Enemy"
+  },
+  {
+    name: "Diver",
+    image: "https://i.imgur.com/Ult6bVY.png",
+    luminant: "The Depths",
+    location: "Scyphozia",
+    race: "Any Aspect",
+    gender: "Male/Female",
+    type: "Enemy"
+  },
+  {
+    name: "Journeyman Diver Guard",
+    image: "https://i.imgur.com/464Afu6.png",
+    luminant: "Eastern Luminant, The Depths",
+    location: "Open Sea, Scyphozia",
+    race: "Any Aspect",
+    gender: "Male/Female",
+    type: "Enemy"
+  },
+  {
+    name: "Diver Quartermaster",
+    image: "https://i.imgur.com/wNfjbGD.png",
+    luminant: "Eastern Luminant",
+    location: "Open Sea",
+    race: "Any Aspect",
+    gender: "Male/Female",
+    type: "Enemy"
+  },
+  {
+    name: "Black Diver",
+    image: "https://i.imgur.com/wNfjbGD.png",
+    luminant: "The Depths",
+    location: "Scyphozia, Castle Light",
+    race: "Any Aspect",
+    gender: "Male/Female",
+    type: "Enemy"
+  },
+  {
+    name: "Celtorian Guard",
+    image: "https://i.imgur.com/g5Vgp7n.png",
+    luminant: "The Depths",
+    location: "Scyphozia, The City of the Drowned",
+    race: "Celtor",
+    gender: "Male/Female",
+    type: "Enemy"
+  },
+  {
+    name: "Eastern Nomad",
+    image: "https://i.imgur.com/uNCL3nH.png",
+    luminant: "Etrean Luminant, Eastern Luminant",
+    location: "Etris, Summer Isle",
+    race: "Gremor",
+    gender: "Male/Female",
+    type: "Enemy"
+  },
+  {
+    name: "Eastern Nomad Leader",
+    image: "https://i.imgur.com/Y2jwRDF.png",
+    luminant: "Etrean Luminant, Eastern Luminant",
+    location: "Etris, Summer Isle",
+    race: "Gremor",
+    gender: "Male/Female",
+    type: "Enemy"
+  },
+  {
+    name: "Eastern Nomad Leader",
+    image: "https://i.imgur.com/Y2jwRDF.png",
+    luminant: "Etrean Luminant, Eastern Luminant",
+    location: "Etris, Summer Isle",
+    race: "Gremor",
+    gender: "Male/Female",
+    type: "Enemy"
+  },
+  {
+    name: "Legion Soldier",
+    image: "https://i.imgur.com/gQOdIgf.png",
+    luminant: "Etrean Luminant",
+    location: "Erisia",
+    race: "Khan",
+    gender: "Male/Female",
+    type: "Enemy"
+  },
+  {
+    name: "Legion Captain",
+    image: "https://i.imgur.com/I1zscey.png",
+    luminant: "Etrean Luminant, Eastern Luminant",
+    location: "Erisia, Aratel Island, Starswept Valley",
+    race: "Khan",
+    gender: "Male/Female",
+    type: "Enemy"
+  },
+  {
+    name: "Legion Sniper",
+    image: "https://i.imgur.com/eYYLtyY.png",
+    luminant: "Eastern Luminant",
+    location: "Aratel Island, Starswept Valley",
+    race: "Khan",
+    gender: "Male/Female",
+    type: "Enemy"
+  },
+  {
+    name: "Polis",
+    image: "https://i.imgur.com/8v3qbLG.png",
+    luminant: "Etrean Luminant",
+    location: "Erisia",
+    race: "Vesperian",
+    gender: "Male",
+    type: "NPC/Enemy"
+  },
+  {
+    name: "Finnegan The Lost",
+    image: "https://i.imgur.com/bXoC7C1.png",
+    luminant: "The Depths",
+    location: "Scyphozia",
+    race: "Canor",
+    gender: "Male",
+    type: "Enemy"
+  },
+  {
+    name: "Ministry Agent",
+    image: "https://i.imgur.com/XZROyo9.png",
+    luminant: "Etrean Luminant, The Depths",
+    location: "Minityrsa, Scyphozia, The Understrand",
+    race: "Celtor",
+    gender: "Non-Binary",
+    type: "NPC/Enemy"
+  },
+  {
+    name: "Aska",
+    image: "https://i.imgur.com/59NXjwY.png",
+    luminant: "The Depths",
+    location: "Eternal Gale",
+    race: "Capra",
+    gender: "???",
+    type: "NPC/Enemy"
+  },
+  {
+    name: "Grudge",
+    image: "https://i.imgur.com/SwtBXpO.png",
+    luminant: "Etrean Luminant, Eastern Luminant, The Depths",
+    location: "Erisia, Minityrsa, Starswept Valley, Songseeker Wilds, Scyphozia, Meteor Isle",
+    race: "???",
+    gender: "???",
+    type: "Enemy"
+  },
+  {
+    name: "The Fisherman",
+    image: "https://i.imgur.com/roABBEO.png",
+    luminant: "The Depths",
+    location: "Scyphozia",
+    race: "???",
+    gender: "???",
+    type: "Enemy"
+  },
+  {
+    name: "Zana",
+    image: "https://i.imgur.com/roABBEO.png",
+    luminant: "Etrean Luminant, Eastern Luminant",
+    location: "Isle of Vigils, Etris, Erisia, The Monkey's Paw",
+    race: "Vesperian",
+    gender: "Male",
+    type: "NPC/Enemy"
+  },
+  {
+    name: "Aelita",
+    image: "https://i.imgur.com/VZYezKW.png",
+    luminant: "Etrean Luminant",
+    location: "Minityrsa",
+    race: "Felinor",
+    gender: "Female",
+    type: "NPC"
+  },
+  {
+    name: "Karliah",
+    image: "https://i.imgur.com/gkG06HA.png",
+    luminant: "Etrean Luminant",
+    location: "Etris, Erisia",
+    race: "Adret",
+    gender: "Female",
+    type: "NPC"
+  },
+  {
+    name: "Cap'n Orlandeau",
+    image: "https://i.imgur.com/ZljxWAj.png",
+    luminant: "The Depths",
+    location: "The Scoundrel's Bounty, Fragments of Self, Eternal Gale",
+    race: "Felinor",
+    gender: "Male",
+    type: "NPC"
+  },
+  {
+    name: "Klaris Llfiend, Mother of Lights",
+    image: "https://i.imgur.com/HfYW6cO.png",
+    luminant: "The Depths",
+    location: "Scyphozia, Castle Light",
+    race: "Canor",
+    gender: "Female",
+    type: "NPC"
+  },
+  {
     name: "Ferryman",
     image: "https://i.imgur.com/hofOI2X.png",
     luminant: "Eastern Luminant",
@@ -987,6 +1194,7 @@ input.addEventListener("keypress", (e) => {
 
 </body>
 </html>
+
 
 
 
